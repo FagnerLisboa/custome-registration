@@ -11,6 +11,7 @@ import { RegisterAddressComponent } from './common/register-address/register-add
 import { RegisterFooterComponent } from './common/register-footer/register-footer.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NavbarComponent } from './home/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

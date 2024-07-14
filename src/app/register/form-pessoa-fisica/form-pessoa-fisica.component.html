@@ -6,35 +6,35 @@
         <label for="nome" class="form-label">Nome:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-          <input type="text" id="nome" class="form-control" name="nome" required aria-describedby="nomeHelp">
+          <input type="text" id="nome" class="form-control" [(ngModel)]="pessoaFisica.nome" name="nome" required aria-describedby="nomeHelp">
         </div>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-          <input type="email" id="email" class="form-control" name="email" required aria-describedby="emailHelp">
+          <input type="email" id="email" class="form-control" [(ngModel)]="pessoaFisica.email" name="email" required aria-describedby="emailHelp">
         </div>
       </div>
       <div class="mb-3">
         <label for="telefone" class="form-label">Telefone:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-          <input type="tel" id="telefone" class="form-control" name="telefone" required aria-describedby="telefoneHelp">
+          <input type="tel" id="telefone" class="form-control" [(ngModel)]="pessoaFisica.telefone" name="telefone" required aria-describedby="telefoneHelp">
         </div>
       </div>
       <div class="mb-3">
         <label for="cpf" class="form-label">CPF:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-credit-card-fill"></i></span>
-          <input type="text" id="cpf" class="form-control" name="cpf" required aria-describedby="cpfHelp">
+          <input type="text" id="cpf" class="form-control" [(ngModel)]="pessoaFisica.cpf" name="cpf" required aria-describedby="cpfHelp">
         </div>
       </div>
       <div class="mb-3">
         <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-calendar-fill"></i></span>
-          <input type="date" id="dataNascimento" class="form-control" name="dataNascimento" required
+          <input type="date" id="dataNascimento" class="form-control" [(ngModel)]="pessoaFisica.dataNascimento" name="dataNascimento" required
             aria-describedby="dataNascimentoHelp">
         </div>
       </div>
@@ -44,4 +44,13 @@
       </div>
     </form>
   </div>
+</div>
+
+<div *ngIf="submitted" class="mb-4">
+  <h3>Dados do Formulário:</h3>
+  <p><strong>Nome:</strong>{{ pessoaFisica.nome }}</p>
+  <p><strong>E-mail:</strong>{{ pessoaFisica.email }}</p>
+  <p><strong>Telefone:</strong>{{ pessoaFisica.telefone }}</p>
+  <p><strong>CPF:</strong> {{ pessoaFisica.cpf}}</p>
+  <p><strong>Data de Nascimento:</strong>{{ pessoaFisica.dataNascimento }}</p>
 </div>
