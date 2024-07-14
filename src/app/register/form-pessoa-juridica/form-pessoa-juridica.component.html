@@ -6,35 +6,35 @@
         <label for="nome" class="form-label">Nome:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-          <input type="text" id="nome" class="form-control" name="nome" required aria-describedby="nomeHelp">
+          <input type="text" id="nome" class="form-control" [(ngModel)]="pessoaJuridica.nome" name="nome" required aria-describedby="nomeHelp">
         </div>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-          <input type="email" id="email" class="form-control" name="email" required aria-describedby="emailHelp">
+          <input type="email" id="email" class="form-control" [(ngModel)]="pessoaJuridica.email" name="email" required aria-describedby="emailHelp">
         </div>
       </div>
       <div class="mb-3">
         <label for="telefone" class="form-label">Telefone:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-          <input type="tel" id="telefone" class="form-control" name="telefone" required aria-describedby="telefoneHelp">
+          <input type="tel" id="telefone" class="form-control" [(ngModel)]="pessoaJuridica.telefone" name="telefone" required aria-describedby="telefoneHelp">
         </div>
       </div>
       <div class="mb-3">
         <label for="cnpj" class="form-label">CNPJ:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-credit-card-fill"></i></span>
-          <input type="text" id="cnpj" class="form-control" name="cnpj" required aria-describedby="cnpjHelp">
+          <input type="text" id="cnpj" class="form-control" [(ngModel)]="pessoaJuridica.cnpj" name="cnpj" required aria-describedby="cnpjHelp">
         </div>
       </div>
       <div class="mb-3">
         <label for="razaoSocial" class="form-label">Razão Social:</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-building"></i></span>
-          <input type="text" id="razaoSocial" class="form-control" name="razaoSocial" required aria-describedby="razaoSocialHelp">
+          <input type="text" id="razaoSocial" class="form-control" [(ngModel)]="pessoaJuridica.razaoSocial" name="razaoSocial" required aria-describedby="razaoSocialHelp">
         </div>
       </div>
       <div class="d-flex justify-content-between mt-4">
@@ -43,4 +43,13 @@
       </div>
     </form>
   </div>
+</div>
+
+<div *ngIf="submitted" class="mb-4">
+  <h3>Dados do Formulário:</h3>
+  <p><strong>Nome:</strong>{{ pessoaJuridica.nome }}</p>
+  <p><strong>E-mail:</strong>{{ pessoaJuridica.email }}</p>
+  <p><strong>Telefone:</strong>{{ pessoaJuridica.telefone }}</p>
+  <p><strong>CNPJ:</strong>{{ pessoaJuridica.cnpj }}</p>
+  <p><strong>Razão Social:</strong>{{ pessoaJuridica.razaoSocial}}</p>
 </div>
