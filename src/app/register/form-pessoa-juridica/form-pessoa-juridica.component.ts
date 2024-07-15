@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,27 +8,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-pessoa-juridica.component.scss']
 })
 export class FormPessoaJuridicaComponent implements OnInit {
-    pessoaJuridica = {
-      nome: '',
-      email: '',
-      telefone: '',
-      cnpj: '',
-      razaoSocial: ''
-    };
+  cadastroForm: FormGroup;
+  submitted = false;
 
-    submitted = false;
-
-  constructor(private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) { 
+    this.cadastroForm = this.fb.group({
+      nome: [''],
+      email: [''],
+      telefone: [''],
+      cnpj: [''],
+      razaoSocial: [''],
+    });
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     this.submitted = true;
-    console.log(this.pessoaJuridica)
-  }
+    console.log(this.cadastroForm.value)
+  } 
 
-  goBack(): void {
+  goBack() {
     this.router.navigate(['/register']);
   }
 }
+
+

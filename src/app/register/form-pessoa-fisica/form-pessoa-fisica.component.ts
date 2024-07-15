@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { log } from 'console';
 
 @Component({
   selector: 'app-form-pessoa-fisica',
@@ -8,27 +8,31 @@ import { log } from 'console';
   styleUrls: ['./form-pessoa-fisica.component.scss']
 })
 export class FormPessoaFisicaComponent implements OnInit {
-  pessoaFisica = {
-    nome: '',
-    email: '',
-    telefone: '',
-    cpf: '',
-    dataNascimento: ''
-  };
-
+  cadastroForm: FormGroup;
   submitted = false;
 
-  constructor(private router: Router ) { }
+  constructor(
+     private fb: FormBuilder, 
+     private router: Router
+     ) {
+    this.cadastroForm = this.fb.group({
+      nome: [''],
+      email: [''],
+      telefone: [''],
+      cpf: [''],
+      dataNascimento: ['']
+    });
+   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
-    this.submitted = true;
-    console.log(this.pessoaFisica)
+  onSubmit() {
+   this.submitted = true;
+   console.log(this.cadastroForm.value);
   }
 
-  goBack(): void {
+  goBack() {
     this.router.navigate(['/register']);
   }
 }

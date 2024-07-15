@@ -9,8 +9,8 @@ import { NavbarComponent } from './home/navbar/navbar.component';
 import { FormPessoaJuridicaComponent } from './register/form-pessoa-juridica/form-pessoa-juridica.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'formPessoaFisica', component: FormPessoaFisicaComponent },
@@ -24,3 +24,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
