@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-form-pessoa-juridica',
@@ -13,28 +14,34 @@ export class FormPessoaJuridicaComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private registerService: RegisterService
   ) { 
     this.cadastroForm = this.fb.group({
-      nome: [''],
-      email: [''],
-      telefone: [''],
-      cnpj: [''],
-      razaoSocial: [''],
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      telefone: ['', Validators.required],
+      cnpj: ['', Validators.required],
+      razaoSocial: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  cadastrar(): void {
     this.submitted = true;
-    console.log(this.cadastroForm.value)
-  } 
+    if (this.cadastroForm.valid) {
+      const resultado = this.registerService.cadastrar(this.cadastroForm.value);
+      if (resultado) {
+        console.log('Cadastro realizado com sucesso');
+      } else {
+        console.log('Erro ao realizar o cadastro');
+      }
+    }
+  }
 
   goBack() {
     this.router.navigate(['/register']);
   }
 }
-
-
