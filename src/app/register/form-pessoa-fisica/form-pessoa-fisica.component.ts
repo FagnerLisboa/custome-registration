@@ -11,6 +11,7 @@ import { RegisterService } from '../register.service';
 export class FormPessoaFisicaComponent implements OnInit {
   cadastroForm: FormGroup;
   submitted = false;
+  xpto = false;
 
   constructor(
     private fb: FormBuilder,
