@@ -1,8 +1,10 @@
 <div class="container text-center">
-  <h1 class="my-5">Bem-vindo ao Sistema de Cadastro de Clientes</h1>
-  <p>Escolha uma opção abaixo para começar:</p>
-  <div class="d-flex justify-content-center">
-    <a routerLink="/formPessoaFisica" class="btn btn-primary mx-2">Cadastrar Pessoa Física</a>
-    <a routerLink="/formPessoaJuridica" class="btn btn-primary mx-2">Cadastrar Pessoa Jurídica</a>
-  </div>
+  <h1 class="my-5">Cadastro</h1>
+    <h5>Escolha uma opção:</h5>
+    <div class="d-flex justify-content-center">
+      <a class="btn btn-primary mx-2" (click)="selectRegistration('pf')">Cadastrar Pessoa Física</a>
+      <a class="btn btn-primary mx-2" (click)="selectRegistration('pj')">Cadastrar Pessoa Jurídica</a>
+    </div>
+  <app-form-pessoa-juridica *ngIf="registrationType === 'pj'"></app-form-pessoa-juridica>
+  <app-form-pessoa-fisica *ngIf="registrationType === 'pf'"></app-form-pessoa-fisica>
 </div>
