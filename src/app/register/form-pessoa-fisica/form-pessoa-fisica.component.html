@@ -5,69 +5,29 @@
       <div class="mb-3">
         <label for="nome" class="form-label">Nome Completo:</label>
         <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
-          <input type="text" id="nome" class="form-control" formControlName="nome" required>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">E-mail:</label>
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-          <input type="email" id="email" class="form-control" formControlName="email" required>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="telefone" class="form-label">Telefone:</label>
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-          <input type="tel" id="telefone" class="form-control" formControlName="telefone" required>
+
         </div>
       </div>
       <div class="mb-3">
         <label for="cpf" class="form-label">CPF:</label>
         <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-credit-card-fill"></i></span>
-          <input type="text" id="cpf" class="form-control" formControlName="cpf" required>
+          <input type="text" id="cpf" class="form-control" formControlName="cpf">
         </div>
       </div>
       <div class="mb-3">
-        <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
+        <label for="email" class="form-label">Email:</label>
         <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-calendar-fill"></i></span>
-          <input type="date" id="dataNascimento" class="form-control" formControlName="dataNascimento" required>
+          <input type="email" id="email" class="form-control" formControlName="email">
         </div>
       </div>
-      <div class="d-flex justify-content-between mt-4">
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-        <button type="button" class="btn btn-secondary" (click)="goBack()">Voltar</button>
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone:</label>
+        <div class="input-group">
+          <input type="tel" id="telefone" class="form-control" formControlName="telefone">
+        </div>
       </div>
+      <app-register-footer (goBackEvent)="onGoBack()" [cadastro]="cadastroForm"></app-register-footer>
     </form>
   </div>
 </div>
 
-<!-- Div para exibir os dados do formulário -->
-<div *ngIf="submitted" class="mt-4">
-  <h3 class="text-center">Dados do Formulário</h3>
-  <div class="card shadow-sm p-4">
-    <div class="mb-3">
-      <label class="form-label">Nome Completo:</label>
-      <p class="form-control-static">{{ cadastroForm.value.nome }}</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Email:</label>
-      <p class="form-control-static">{{ cadastroForm.value.email }}</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Telefone:</label>
-      <p class="form-control-static">{{ cadastroForm.value.telefone }}</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">CPF:</label>
-      <p class="form-control-static">{{ cadastroForm.value.cpf }}</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Data de Nascimento:</label>
-      <p class="form-control-static">{{ cadastroForm.value.dataNascimento }}</p>
-    </div>
-  </div>
-</div>

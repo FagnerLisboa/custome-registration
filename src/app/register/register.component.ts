@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  public registrationType: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectRegistration(type: string) {
+    this.registrationType = type;
   }
 
 }

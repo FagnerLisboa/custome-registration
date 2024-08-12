@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
@@ -11,6 +11,7 @@ import { RegisterService } from '../register.service';
 export class FormPessoaFisicaComponent implements OnInit {
   cadastroForm: FormGroup;
   submitted = false;
+  xpto = false;
 
   constructor(
     private fb: FormBuilder,
@@ -27,22 +28,13 @@ export class FormPessoaFisicaComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   cadastrar() {
-    this.submitted = true;
-    if (this.cadastroForm.valid) {
-      const resultado = this.registerService.cadastrar(this.cadastroForm.value);
-      if (resultado) {
-        console.log('Cadastro realizado com sucesso')
-      } else {
-        console.log('Erro ao realizar o cadastro');
-      }
-    }
+    this.registerService.cadastrar(this.cadastroForm.value);
   }
 
-  goBack() {
-    this.router.navigate(['/register']);
+  onGoBack() {
+    this.router.navigate(['/home']);
   }
 }
