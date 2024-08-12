@@ -20,10 +20,10 @@ export class FormPessoaFisicaComponent implements OnInit {
 
   ) {
     this.cadastroForm = this.fb.group({
-      nome: ['', Validators.required],
+      nome: ['', [Validators.required, Validators.pattern('^[a-zA-Z\\s]+$')]],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', Validators.required],
-      cpf: ['', Validators.required],
+      telefone: ['',[Validators.required, Validators.pattern('^[0-9]{10,11}$')]],
+      cpf: ['', [Validators.required, Validators.pattern('^[0-9]{11}$')]],
       dataNascimento: ['', Validators.required]
     });
   }

@@ -24,30 +24,3 @@
     </form>
   </div>
 </div>
-
-<!-- Div para exibir os dados do formulário -->
-<div *ngIf="submitted" class="mt-4">
-  <h3 class="text-center">Dados do Formulário</h3>
-  <div class="card shadow-sm p-4">
-    <div class="mb-3">
-      <label class="form-label">Nome:</label>
-      <p class="form-control-static">{{ cadastroForm.value.nome }}</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Email:</label>
-      <p class="form-control-static">{{ cadastroForm.value.email }}</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Telefone:</label>
-      <p class="form-control-static">{{ cadastroForm.value.telefone }}</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">CPF:</label>
-      <p class="form-control-static">{{ cadastroForm.value.cnpj }}</p>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Data de Nascimento:</label>
-      <p class="form-control-static">{{ cadastroForm.value.razaoSocial }}</p>
-    </div>
-  </div>
-</div>

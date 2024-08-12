@@ -5,7 +5,10 @@
       <div class="mb-3">
         <label for="nome" class="form-label">Nome Completo:</label>
         <div class="input-group">
-
+          <input type="text" id="nome" class="form-control" formControlName="nome">
+          <div *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched" class="text-danger">
+            Nome é obrigatório!
+          </div>
         </div>
       </div>
       <div class="mb-3">
