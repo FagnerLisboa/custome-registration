@@ -24,7 +24,6 @@ export class FormPessoaFisicaComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       telefone: ['',[Validators.required, Validators.pattern('^[0-9]{10,11}$')]],
       cpf: ['', [Validators.required, Validators.pattern('^[0-9]{11}$')]],
-      dataNascimento: ['', Validators.required]
     });
   }
 
