@@ -16,10 +16,11 @@ export class FormPessoaJuridicaComponent implements OnInit {
     private router: Router,
     private registerService: RegisterService
   ) {
+
     this.cadastroForm = this.fb.group({
-      razaoSocial: ['', Validators.required, Validators.maxLength(80)],
+      razaoSocial: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', Validators.required],
+      telefone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/)]], 
       cnpj: ['', Validators.required]
     });
   }

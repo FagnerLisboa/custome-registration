@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
@@ -19,11 +19,13 @@ export class FormPessoaFisicaComponent implements OnInit {
     private registerService: RegisterService
 
   ) {
+
     this.cadastroForm = this.fb.group({
-      nome: ['', [Validators.required, Validators.pattern('^[a-zA-Z\\s]+$')]],
+      nome: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['',[Validators.required, Validators.pattern('^[0-9]{10,11}$')]],
-      cpf: ['', [Validators.required, Validators.pattern('^[0-9]{11}$')]],
+      telefone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/)]], 
+      cpf: ['', [Validators.required, Validators.pattern(/^(?!.*(\d)\1{10})\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/),
+      ]]
     });
   }
 
