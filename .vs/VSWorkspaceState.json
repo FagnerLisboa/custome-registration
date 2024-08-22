@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.angular",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\register",
+    "\\src\\app\\register\\form-pessoa-juridica"
+  ],
+  "SelectedNode": "\\src\\app\\register\\form-pessoa-juridica\\form-pessoa-juridica.component.ts",
+  "PreviewInSolutionExplorer": false
+}

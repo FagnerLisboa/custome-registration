@@ -1,8 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
 
+function cnpjValidator(control: AbstractControl): ValidationErrors | null {
+  const cnpj = control.value.replace(/\D/g, ''); 
+
+  const isValid = /^(?!^(\d)\1{13}$)\d{14}$/.test(cnpj);
+
+  return isValid ? null : { cnpjInvalido: true };
+  
+}
 @Component({
   selector: 'app-form-pessoa-juridica',
   templateUrl: './form-pessoa-juridica.component.html',
@@ -20,8 +28,9 @@ export class FormPessoaJuridicaComponent implements OnInit {
     this.cadastroForm = this.fb.group({
       razaoSocial: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/)]], 
-      cnpj: ['', Validators.required]
+      telefone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/)]],
+      cnpj: ['', [Validators.required, cnpjValidator,
+      ]]
     });
   }
 

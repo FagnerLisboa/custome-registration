@@ -18,12 +18,12 @@
       <div class="mb-3">
         <label for="cnpj" class="form-label">CNPJ:</label>
         <div class="input-group">
-          <input type="cnpj" id="cnpj" class="form-control" formControlName="cnpj"
+          <input type="cnpj" id="cnpj" class="form-control" mask="00.000.000/0000-00" formControlName="cnpj"
             [ngClass]="{'is-invalid': cadastroForm.get('cnpj')?.invalid && cadastroForm.get('cnpj')?.touched}">
         </div>
         <div *ngIf="cadastroForm.get('cnpj')?.invalid && cadastroForm.get('cnpj')?.touched" class="text-danger">
           <small *ngIf="cadastroForm.get('cnpj')?.errors?.['required']">CNPJ é obrigatório.</small>
-          <small *ngIf="cadastroForm.get('cnpj')?.errors?.['pattern']">CNPJ no formato inválido.</small>
+          <small *ngIf="cadastroForm.get('cnpj')?.errors?.['cnpjInvalido']">CNPJ no formato inválido.</small>
         </div>
       </div>
       <div class="mb-3">
