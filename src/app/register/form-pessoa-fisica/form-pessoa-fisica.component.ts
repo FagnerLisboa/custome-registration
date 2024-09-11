@@ -23,7 +23,7 @@ export class FormPessoaFisicaComponent implements OnInit {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/)]], 
+      telefone: ['', [Validators.required, Validators.pattern(/^\d{10,11}$/)]], 
       cpf: ['', [Validators.required, Validators.pattern(/^(?!.*(\d)\1{10})\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/),
       ]]
     });

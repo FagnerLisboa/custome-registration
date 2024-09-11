@@ -28,8 +28,8 @@ export class FormPessoaJuridicaComponent implements OnInit {
     this.cadastroForm = this.fb.group({
       razaoSocial: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', [Validators.required, Validators.pattern(/^\(\d{2}\) \d{4,5}-\d{4}$/)]],
-      cnpj: ['', [Validators.required, cnpjValidator,
+      telefone: ['', [Validators.required, Validators.pattern(/^\d{10,11}$/)]],
+      cnpj: ['', [Validators.required, Validators.pattern(/^(?!.*(\d)\1{13})\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}$/),
       ]]
     });
   }

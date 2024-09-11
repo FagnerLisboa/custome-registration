@@ -23,7 +23,7 @@
         </div>
         <div *ngIf="cadastroForm.get('cnpj')?.invalid && cadastroForm.get('cnpj')?.touched" class="text-danger">
           <small *ngIf="cadastroForm.get('cnpj')?.errors?.['required']">CNPJ é obrigatório.</small>
-          <small *ngIf="cadastroForm.get('cnpj')?.errors?.['cnpjInvalido']">CNPJ no formato inválido.</small>
+          <small *ngIf="cadastroForm.get('cnpj')?.errors?.['pattern']">CNPJ no formato inválido.</small>
         </div>
       </div>
       <div class="mb-3">
@@ -40,7 +40,7 @@
       <div class="mb-3">
         <label for="telefone" class="form-label">Telefone:</label>
         <div class="input-group">
-          <input type="tel" id="telefone" class="form-control" formControlName="telefone"
+          <input type="tel" id="telefone" class="form-control" mask="(00) 00000-0000||(00) 0000-0000" formControlName="telefone"
             [ngClass]="{'is-invalid': cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched}">
         </div>
         <div *ngIf="cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched" class="text-danger">
