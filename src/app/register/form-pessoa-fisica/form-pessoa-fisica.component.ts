@@ -10,6 +10,7 @@ import { RegisterService } from '../register.service';
 })
 export class FormPessoaFisicaComponent implements OnInit {
   cadastroForm: FormGroup;
+  public registrationType: string = '';
   submitted = false;
   xpto = false;
 
@@ -23,7 +24,7 @@ export class FormPessoaFisicaComponent implements OnInit {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]],
       email: ['', [Validators.required, Validators.email]],
-      telefone: ['', [Validators.required, Validators.pattern(/^\d{10,11}$/)]], 
+      telefone: ['', [Validators.required, Validators.pattern(/^\d{10,11}$/)]],
       cpf: ['', [Validators.required, Validators.pattern(/^(?!.*(\d)\1{10})\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/),
       ]]
     });

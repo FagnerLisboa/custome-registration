@@ -9,7 +9,6 @@
 
     <app-form-pessoa-juridica *ngIf="registrationType === 'pj'"></app-form-pessoa-juridica>
     <app-form-pessoa-fisica *ngIf="registrationType === 'pf'"></app-form-pessoa-fisica>
-    <app-register-address *ngIf="registrationType"></app-register-address>
     <app-register-footer *ngIf="registrationType" (goBackEvent)="onGoBack()"
       [cadastro]="cadastroForm"></app-register-footer>
   </form>

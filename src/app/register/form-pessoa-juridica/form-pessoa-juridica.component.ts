@@ -18,6 +18,7 @@ function cnpjValidator(control: AbstractControl): ValidationErrors | null {
 })
 export class FormPessoaJuridicaComponent implements OnInit {
   cadastroForm: FormGroup;
+  public registrationType: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -35,6 +36,10 @@ export class FormPessoaJuridicaComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  selectRegistration(type: string) {
+    this.registrationType = type;
+  }
 
   cadastrar(): void {
     this.registerService.cadastrar(this.cadastroForm.value);
