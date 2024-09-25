@@ -1,10 +1,16 @@
 <div class="container text-center">
   <h1 class="my-5">Cadastro</h1>
+  <form [formGroup]="cadastroForm" (ngSubmit)="onFormSubmit()">
     <h5>Escolha uma opção:</h5>
     <div class="d-flex justify-content-center">
       <a class="btn btn-primary mx-2" (click)="selectRegistration('pf')">Cadastrar Pessoa Física</a>
       <a class="btn btn-primary mx-2" (click)="selectRegistration('pj')">Cadastrar Pessoa Jurídica</a>
     </div>
-  <app-form-pessoa-juridica *ngIf="registrationType === 'pj'"></app-form-pessoa-juridica>
-  <app-form-pessoa-fisica *ngIf="registrationType === 'pf'"></app-form-pessoa-fisica>
+
+    <app-form-pessoa-juridica *ngIf="registrationType === 'pj'"></app-form-pessoa-juridica>
+    <app-form-pessoa-fisica *ngIf="registrationType === 'pf'"></app-form-pessoa-fisica>
+    <app-register-address *ngIf="registrationType"></app-register-address>
+    <app-register-footer *ngIf="registrationType" (goBackEvent)="onGoBack()"
+      [cadastro]="cadastroForm"></app-register-footer>
+  </form>
 </div>

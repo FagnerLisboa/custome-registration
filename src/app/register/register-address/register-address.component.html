@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Endereço</h2>
+  <div class="card shadow-sm p-4">
+    <form [formGroup]="addressForm">
+      <div class="mb-3">
+        <label for="street" class="form-label">Rua:</label>
+        <input type="text" id="street" class="form-control" formControlName="street">
+      </div>
+
+      <div class="mb-3">
+        <label for="number" class="form-label">Número:</label>
+        <input type="text" id="number" class="form-control" formControlName="number">
+      </div>
+
+      <div class="mb-3">
+        <label for="city" class="form-label">Cidade:</label>
+        <input type="text" id="city" class="form-control" formControlName="city">
+      </div>
+
+      <div class="mb-3">
+        <label for="state" class="form-label">Estado:</label>
+        <input type="text" id="state" class="form-control" formControlName="state">
+      </div>
+
+      <div class="mb-3">
+        <label for="zipCode" class="form-label">CEP:</label>
+        <input type="text" id="zipCode" class="form-control" formControlName="zipCode">
+      </div>
+    </form>
+  </div>
+</div>

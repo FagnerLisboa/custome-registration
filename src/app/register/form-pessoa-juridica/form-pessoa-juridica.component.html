@@ -40,7 +40,8 @@
       <div class="mb-3">
         <label for="telefone" class="form-label">Telefone:</label>
         <div class="input-group">
-          <input type="tel" id="telefone" class="form-control" mask="(00) 00000-0000||(00) 0000-0000" formControlName="telefone"
+          <input type="tel" id="telefone" class="form-control" mask="(00) 00000-0000||(00) 0000-0000"
+            formControlName="telefone"
             [ngClass]="{'is-invalid': cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched}">
         </div>
         <div *ngIf="cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched" class="text-danger">
@@ -49,7 +50,7 @@
             XXXXX-XXXX ou (XX) XXXX-XXXX.</small>
         </div>
       </div>
-      <app-register-footer (goBackEvent)="onGoBack()" [cadastro]="cadastroForm"></app-register-footer>
+      <!-- <app-register-footer (goBackEvent)="onGoBack()" [cadastro]="cadastroForm"></app-register-footer> -->
     </form>
   </div>
 </div>

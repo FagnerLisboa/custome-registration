@@ -14,6 +14,7 @@ import { RegisterFooterComponent } from './register/register-footer/register-foo
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterService } from './register/register.service';
+import { RegisterAddressComponent } from './register/register-address/register-address.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -27,7 +28,8 @@ const maskConfig: Partial<IConfig> = {
     NavbarComponent,
     FormPessoaJuridicaComponent,
     FormPessoaFisicaComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterAddressComponent
   ],
   imports: [
     BrowserModule,
