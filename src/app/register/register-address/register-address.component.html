@@ -1,44 +1,57 @@
 <div>
-  <form [formGroup]="addressForm">
+  <form [formGroup]="addressForm" (ngSubmit)="cadastrar()">
     <div class="mb-3">
       <label for="logradouro" class="form-label">Logradouro:</label>
-      <div class="input-group">
-        <input type="text" id="logradouro" class="form-control" formControlName="logradouro">
+      <input type="text" id="logradouro" class="form-control" formControlName="logradouro"
+        [ngClass]="{'is-invalid': isFieldInvalid('logradouro')}">
+      <div *ngIf="isFieldInvalid('logradouro')" class="text-danger">
+        Logradouro é obrigatório.
       </div>
     </div>
 
     <div class="mb-3">
       <label for="numero" class="form-label">Número:</label>
-      <div class="input-group">
-        <input type="text" id="numero" class="form-control" formControlName="numero">
+      <input type="text" id="numero" class="form-control" formControlName="numero"
+        [ngClass]="{'is-invalid': isFieldInvalid('numero')}">
+      <div *ngIf="isFieldInvalid('numero')" class="text-danger">
+        Número é obrigatório.
       </div>
     </div>
 
     <div class="mb-3">
       <label for="bairro" class="form-label">Bairro:</label>
-      <div class="input-group">
-        <input type="text" id="bairro" class="form-control" formControlName="bairro">
+      <input type="text" id="bairro" class="form-control" formControlName="bairro"
+        [ngClass]="{'is-invalid': isFieldInvalid('bairro')}">
+      <div *ngIf="isFieldInvalid('bairro')" class="text-danger">
+        Bairro é obrigatório.
       </div>
     </div>
 
     <div class="mb-3">
       <label for="cidade" class="form-label">Cidade:</label>
-      <div class="input-group">
-        <input type="text" id="cidade" class="form-control" formControlName="cidade">
+      <input type="text" id="cidade" class="form-control" formControlName="cidade"
+        [ngClass]="{'is-invalid': isFieldInvalid('cidade')}">
+      <div *ngIf="isFieldInvalid('cidade')" class="text-danger">
+        Cidade é obrigatória.
       </div>
     </div>
 
     <div class="mb-3">
       <label for="estado" class="form-label">Estado:</label>
-      <div class="input-group">
-        <input type="text" id="estado" class="form-control" formControlName="estado">
+      <input type="text" id="estado" class="form-control" formControlName="estado"
+        [ngClass]="{'is-invalid': isFieldInvalid('estado')}">
+      <div *ngIf="isFieldInvalid('estado')" class="text-danger">
+        Estado é obrigatório.
       </div>
     </div>
 
     <div class="mb-3">
       <label for="cep" class="form-label">CEP:</label>
-      <div class="input-group">
-        <input type="text" id="cep" class="form-control" mask="00000-000" formControlName="cep">
+      <input type="text" id="cep" class="form-control" formControlName="cep"
+        [ngClass]="{'is-invalid': isFieldInvalid('cep')}" placeholder="00000-000">
+      <div *ngIf="isFieldInvalid('cep')" class="text-danger">
+        <small *ngIf="addressForm.get('cep')?.errors?.['required']">CEP é obrigatório.</small>
+        <small *ngIf="addressForm.get('cep')?.errors?.['pattern']">CEP inválido. Use o formato 00000-000.</small>
       </div>
     </div>
   </form>

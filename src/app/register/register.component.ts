@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterService } from './register.service';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -15,11 +15,14 @@ export class RegisterComponent implements OnInit {
   public cadastroForm: FormGroup;
 
   constructor(
+    private fb: FormBuilder,
     private router: Router,
     private registerService: RegisterService,
     ) { }
 
   ngOnInit(): void {
+     this.cadastroForm = this.fb.group({
+    });
   }
 
   selectRegistration(type: string) {

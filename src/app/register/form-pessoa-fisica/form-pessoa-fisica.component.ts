@@ -10,15 +10,14 @@ import { RegisterService } from '../register.service';
 })
 export class FormPessoaFisicaComponent implements OnInit {
   cadastroForm: FormGroup;
-  public registrationType: string = '';
   submitted = false;
-  xpto = false;
+  public showAddressForm: string = '';
+cadastro: any;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private registerService: RegisterService
-
   ) {
 
     this.cadastroForm = this.fb.group({
@@ -30,7 +29,9 @@ export class FormPessoaFisicaComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log(this.cadastro.invalid);
+   }
 
   cadastrar() {
     this.registerService.cadastrar(this.cadastroForm.value);
@@ -39,4 +40,5 @@ export class FormPessoaFisicaComponent implements OnInit {
   onGoBack() {
     this.router.navigate(['/home']);
   }
+  
 }

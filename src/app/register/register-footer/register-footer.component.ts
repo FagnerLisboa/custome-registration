@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterFooterComponent implements OnInit {
 
-  @Output() goBackEvent = new EventEmitter<void>();
   @Input() cadastro: FormGroup;
+  @Output() goBackEvent = new EventEmitter<void>();
+  
 
   constructor(
     private router: Router,
