@@ -1,58 +1,83 @@
-<div>
+<div class="container mt-3">
   <form [formGroup]="addressForm" (ngSubmit)="cadastrar()">
-    <div class="mb-3">
-      <label for="logradouro" class="form-label">Logradouro:</label>
-      <input type="text" id="logradouro" class="form-control" formControlName="logradouro"
-        [ngClass]="{'is-invalid': isFieldInvalid('logradouro')}">
-      <div *ngIf="isFieldInvalid('logradouro')" class="text-danger">
-        Logradouro é obrigatório.
+
+    <!-- Linha para CEP e link "Esqueci meu CEP" -->
+    <div class="row mb-3 align-items-center">
+      <div class="col-md-8">
+        <label for="cep" class="form-label">CEP:</label>
+        <input type="text" id="cep" class="form-control" formControlName="cep"
+          [ngClass]="{'is-invalid': isFieldInvalid('cep')}" placeholder="00000-000">
+        <div *ngIf="isFieldInvalid('cep')" class="text-danger">
+          <small *ngIf="addressForm.get('cep')?.errors?.['required']">CEP é obrigatório.</small>
+          <small *ngIf="addressForm.get('cep')?.errors?.['pattern']">CEP inválido. Use o formato 00000-000.</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <a href="#" (click)="esqueciCep()" class="text-primary" style="margin-top: 28px; display: block;">Esqueci meu
+          CEP</a>
       </div>
     </div>
 
-    <div class="mb-3">
-      <label for="numero" class="form-label">Número:</label>
-      <input type="text" id="numero" class="form-control" formControlName="numero"
-        [ngClass]="{'is-invalid': isFieldInvalid('numero')}">
-      <div *ngIf="isFieldInvalid('numero')" class="text-danger">
-        Número é obrigatório.
+    <!-- Linha para Logradouro, Número e Complemento -->
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label for="logradouro" class="form-label">Logradouro:</label>
+        <input type="text" id="logradouro" class="form-control" formControlName="logradouro"
+          [ngClass]="{ 'is-invalid': isFieldInvalid('logradouro') }" />
+        <div *ngIf="isFieldInvalid('logradouro')" class="text-danger">
+          <small *ngIf="addressForm.get('logradouro')?.errors?.['required']">Logradouro é obrigatório.</small>
+          <small *ngIf="addressForm.get('logradouro')?.errors?.['minlength']">Logradouro deve ter no mínimo 3
+            caracteres.</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="numero" class="form-label">Número:</label>
+        <input type="text" id="numero" class="form-control" formControlName="numero"
+          [ngClass]="{ 'is-invalid': isFieldInvalid('numero') }" />
+        <div *ngIf="isFieldInvalid('numero')" class="text-danger">
+          <small *ngIf="addressForm.get('numero')?.errors?.['required']">Número é obrigatório.</small>
+          <small *ngIf="addressForm.get('numero')?.errors?.['pattern']">Apenas números são permitidos.</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="complemento" class="form-label">Complemento:</label>
+        <input type="text" id="complemento" class="form-control" formControlName="complemento" />
       </div>
     </div>
 
-    <div class="mb-3">
-      <label for="bairro" class="form-label">Bairro:</label>
-      <input type="text" id="bairro" class="form-control" formControlName="bairro"
-        [ngClass]="{'is-invalid': isFieldInvalid('bairro')}">
-      <div *ngIf="isFieldInvalid('bairro')" class="text-danger">
-        Bairro é obrigatório.
+    <!-- Linha para Bairro, Estado e Cidade -->
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label for="bairro" class="form-label">Bairro:</label>
+        <input type="text" id="bairro" class="form-control" formControlName="bairro"
+          [ngClass]="{ 'is-invalid': isFieldInvalid('bairro') }" />
+        <div *ngIf="isFieldInvalid('bairro')" class="text-danger">
+          <small *ngIf="addressForm.get('bairro')?.errors?.['required']">Bairro é obrigatório.</small>
+          <small *ngIf="addressForm.get('bairro')?.errors?.['minlength']">Bairro deve ter no mínimo 3
+            caracteres.</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="estado" class="form-label">Estado:</label>
+        <input type="text" id="estado" class="form-control" formControlName="estado"
+          [ngClass]="{ 'is-invalid': isFieldInvalid('estado') }" />
+        <div *ngIf="isFieldInvalid('estado')" class="text-danger">
+          <small *ngIf="addressForm.get('estado')?.errors?.['required']">Estado é obrigatório.</small>
+          <small *ngIf="addressForm.get('estado')?.errors?.['pattern']">Estado inválido. Use o formato UF (ex:
+            SP).</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="cidade" class="form-label">Cidade:</label>
+        <input type="text" id="cidade" class="form-control" formControlName="cidade"
+          [ngClass]="{ 'is-invalid': isFieldInvalid('cidade') }" />
+        <div *ngIf="isFieldInvalid('cidade')" class="text-danger">
+          <small *ngIf="addressForm.get('cidade')?.errors?.['required']">Cidade é obrigatória.</small>
+          <small *ngIf="addressForm.get('cidade')?.errors?.['minlength']">Cidade deve ter no mínimo 3
+            caracteres.</small>
+        </div>
       </div>
     </div>
-
-    <div class="mb-3">
-      <label for="cidade" class="form-label">Cidade:</label>
-      <input type="text" id="cidade" class="form-control" formControlName="cidade"
-        [ngClass]="{'is-invalid': isFieldInvalid('cidade')}">
-      <div *ngIf="isFieldInvalid('cidade')" class="text-danger">
-        Cidade é obrigatória.
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="estado" class="form-label">Estado:</label>
-      <input type="text" id="estado" class="form-control" formControlName="estado"
-        [ngClass]="{'is-invalid': isFieldInvalid('estado')}">
-      <div *ngIf="isFieldInvalid('estado')" class="text-danger">
-        Estado é obrigatório.
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="cep" class="form-label">CEP:</label>
-      <input type="text" id="cep" class="form-control" formControlName="cep"
-        [ngClass]="{'is-invalid': isFieldInvalid('cep')}" placeholder="00000-000">
-      <div *ngIf="isFieldInvalid('cep')" class="text-danger">
-        <small *ngIf="addressForm.get('cep')?.errors?.['required']">CEP é obrigatório.</small>
-        <small *ngIf="addressForm.get('cep')?.errors?.['pattern']">CEP inválido. Use o formato 00000-000.</small>
-      </div>
-    </div>
+z
   </form>
 </div>

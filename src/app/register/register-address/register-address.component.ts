@@ -9,17 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./register-address.component.scss']
 })
 export class RegisterAddressComponent implements OnInit {
+esqueciCep() {
+throw new Error('Method not implemented.');
+}
 
   addressForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.addressForm = this.fb.group({
-      logradouro: ['', Validators.required],
-      numero: ['', Validators.required],
-      bairro: ['', Validators.required],
-      cidade: ['', Validators.required],
-      estado: ['', Validators.required],
-      cep: ['', [Validators.required, Validators.pattern('^[0-9]{5}-[0-9]{3}$')]]
+      logradouro: ['', [Validators.required, Validators.minLength(3)]],
+      numero: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      complemento: ['', [Validators.required, Validators.minLength(3)]],
+      bairro: ['', [Validators.required, Validators.minLength(3)]],
+      cidade: ['', [Validators.required, Validators.minLength(3)]],
+      estado: ['', [Validators.required, Validators.minLength(3)]],
+      cep: ['', [Validators.required, Validators.pattern(/^[0-9]{5}-[0-9]{3}$/)]],
     });
   }
 
@@ -32,10 +36,9 @@ export class RegisterAddressComponent implements OnInit {
 
   cadastrar() {
     if (this.addressForm.valid) {
-      // lógica de cadastro
-      console.log('Formulário de endereço enviado:', this.addressForm.value);
+      console.log('Dados do Formulário de Endereço:', this.addressForm.value);
     } else {
-      this.addressForm.markAllAsTouched(); // Marca todos os campos como tocados para exibir os erros
+      console.log('Formulário inválido');
     }
   }
 
