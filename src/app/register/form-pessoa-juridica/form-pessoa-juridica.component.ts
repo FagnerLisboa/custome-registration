@@ -39,8 +39,6 @@ export class FormPessoaJuridicaComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  
-
   cadastrar(): void {
     this.registerService.cadastrar(this.cadastroForm.value);
   }
@@ -48,4 +46,5 @@ export class FormPessoaJuridicaComponent implements OnInit {
   onGoBack() {
     this.router.navigate(['/home']);
   }
+
 }

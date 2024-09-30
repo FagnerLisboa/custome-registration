@@ -12,7 +12,7 @@ export class FormPessoaFisicaComponent implements OnInit {
   cadastroForm: FormGroup;
   submitted = false;
   public showAddressForm: string = '';
-cadastro: any;
+ 
 
   constructor(
     private fb: FormBuilder,
@@ -29,9 +29,7 @@ cadastro: any;
     });
   }
 
-  ngOnInit(): void {
-    console.log(this.cadastro.invalid);
-   }
+  ngOnInit(): void { }
 
   cadastrar() {
     this.registerService.cadastrar(this.cadastroForm.value);
