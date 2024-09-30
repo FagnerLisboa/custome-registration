@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  getAddressBy: (cep: string) => `http://viacep.com.br/ws/${cep}/json`,
+  getCepBy: (uf: string, city: string, street: string) => `http://viacep.com.br/ws/${uf}/${city}/${street}/json/`
 };
 
 /*

@@ -1,3 +1,4 @@
+import { SharedService } from './../../shared/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../register.service';
@@ -12,7 +13,7 @@ export class RegisterAddressComponent implements OnInit {
 
   addressForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private sharedService: SharedService) {
     this.addressForm = this.fb.group({
       logradouro: ['', Validators.required],
       numero: ['', Validators.required],
@@ -23,7 +24,10 @@ export class RegisterAddressComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAddressBy('04005001');
+    this.getCepBy('SP', 'São Paulo', 'Rua Abilio Soares');
+  }
 
   isFieldInvalid(fieldName: string): boolean {
     const field = this.addressForm.get(fieldName);
@@ -39,5 +43,20 @@ export class RegisterAddressComponent implements OnInit {
     }
   }
 
+  getAddressBy(cep: string) {
+    this.sharedService.getAddressBy(cep).subscribe(
+      (resp) => {
+        console.log('manda cep', resp);
+      }
+    )
+  }
+
+  getCepBy(uf: string, city: string, street: string) {
+    this.sharedService.getCepBy(uf, city, street).subscribe(
+      (resp) => {
+        console.log('manda endereço', resp);
+      }
+    )
+  }
 }
 
