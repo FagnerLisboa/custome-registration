@@ -2,56 +2,60 @@
   <h2 class="text-center mb-4">Cadastro de Pessoa Jurídica</h2>
   <div class="card shadow-sm p-4">
     <form [formGroup]="cadastroForm" (ngSubmit)="cadastrar()">
-      <div class="mb-3">
-        <label for="nome" class="form-label">Razão Social:</label>
-        <div class="input-group">
-          <input type="text" id="razaoSocial" class="form-control" formControlName="razaoSocial"
-            [ngClass]="{'is-invalid': cadastroForm.get('razaoSocial')?.invalid && cadastroForm.get('razaoSocial')?.touched}">
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <label for="razaoSocial" class="form-label">Razão Social:</label>
+          <div class="input-group">
+            <input type="text" id="razaoSocial" class="form-control" formControlName="razaoSocial"
+              [ngClass]="{'is-invalid': cadastroForm.get('razaoSocial')?.invalid && cadastroForm.get('razaoSocial')?.touched}">
+          </div>
+          <div *ngIf="cadastroForm.get('razaoSocial')?.invalid && cadastroForm.get('razaoSocial')?.touched"
+            class="text-danger">
+            <small *ngIf="cadastroForm.get('razaoSocial')?.errors?.['required']">Razão Social é obrigatório.</small>
+            <small *ngIf="cadastroForm.get('razaoSocial')?.errors?.['pattern']">Razão Social inválida. Evite múltiplos
+              espaços.</small>
+          </div>
         </div>
-        <div *ngIf="cadastroForm.get('razaoSocial')?.invalid && cadastroForm.get('razaoSocial')?.touched"
-          class="text-danger">
-          <small *ngIf="cadastroForm.get('razaoSocial')?.errors?.['required']">Razão Social é obrigatório.</small>
-          <small *ngIf="cadastroForm.get('razaoSocial')?.errors?.['pattern']">Razão Social inválido. Evite múltiplos
-            espaços.</small>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="cnpj" class="form-label">CNPJ:</label>
-        <div class="input-group">
-          <input type="cnpj" id="cnpj" class="form-control" mask="00.000.000/0000-00" formControlName="cnpj"
-            [ngClass]="{'is-invalid': cadastroForm.get('cnpj')?.invalid && cadastroForm.get('cnpj')?.touched}">
-        </div>
-        <div *ngIf="cadastroForm.get('cnpj')?.invalid && cadastroForm.get('cnpj')?.touched" class="text-danger">
-          <small *ngIf="cadastroForm.get('cnpj')?.errors?.['required']">CNPJ é obrigatório.</small>
-          <small *ngIf="cadastroForm.get('cnpj')?.errors?.['pattern']">CNPJ no formato inválido.</small>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">E-mail:</label>
-        <div class="input-group">
-          <input type="email" id="email" class="form-control" formControlName="email"
-            [ngClass]="{'is-invalid': cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched}">
-        </div>
-        <div *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched" class="text-danger">
-          <small *ngIf="cadastroForm.get('email')?.errors?.['required']">Email é obrigatório.</small>
-          <small *ngIf="cadastroForm.get('email')?.errors?.['email']">Email inválido.</small>
+        <div class="col-md-4">
+          <label for="cnpj" class="form-label">CNPJ:</label>
+          <div class="input-group">
+            <input type="text" id="cnpj" class="form-control" mask="00.000.000/0000-00" formControlName="cnpj"
+              [ngClass]="{'is-invalid': cadastroForm.get('cnpj')?.invalid && cadastroForm.get('cnpj')?.touched}">
+          </div>
+          <div *ngIf="cadastroForm.get('cnpj')?.invalid && cadastroForm.get('cnpj')?.touched" class="text-danger">
+            <small *ngIf="cadastroForm.get('cnpj')?.errors?.['required']">CNPJ é obrigatório.</small>
+            <small *ngIf="cadastroForm.get('cnpj')?.errors?.['pattern']">CNPJ no formato inválido.</small>
+          </div>
         </div>
       </div>
-      <div class="mb-3">
-        <label for="telefone" class="form-label">Telefone:</label>
-        <div class="input-group">
-          <input type="tel" id="telefone" class="form-control" mask="(00) 00000-0000||(00) 0000-0000"
-            formControlName="telefone"
-            [ngClass]="{'is-invalid': cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched}">
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <label for="email" class="form-label">E-mail:</label>
+          <div class="input-group">
+            <input type="email" id="email" class="form-control" formControlName="email"
+              [ngClass]="{'is-invalid': cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched}">
+          </div>
+          <div *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched" class="text-danger">
+            <small *ngIf="cadastroForm.get('email')?.errors?.['required']">E-mail é obrigatório.</small>
+            <small *ngIf="cadastroForm.get('email')?.errors?.['email']">E-mail inválido.</small>
+          </div>
         </div>
-        <div *ngIf="cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched" class="text-danger">
-          <small *ngIf="cadastroForm.get('telefone')?.errors?.['required']">Telefone é obrigatório.</small>
-          <small *ngIf="cadastroForm.get('telefone')?.errors?.['pattern']">Formato de telefone inválido. Use (XX)
-            XXXXX-XXXX ou (XX) XXXX-XXXX.</small>
+        <div class="col-md-4">
+          <label for="telefone" class="form-label">Telefone:</label>
+          <div class="input-group">
+            <input type="tel" id="telefone" class="form-control" mask="(00) 00000-0000||(00) 0000-0000"
+              formControlName="telefone"
+              [ngClass]="{'is-invalid': cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched}">
+          </div>
+          <div *ngIf="cadastroForm.get('telefone')?.invalid && cadastroForm.get('telefone')?.touched"
+            class="text-danger">
+            <small *ngIf="cadastroForm.get('telefone')?.errors?.['required']">Telefone é obrigatório.</small>
+            <small *ngIf="cadastroForm.get('telefone')?.errors?.['pattern']">Formato de telefone inválido. Use (XX)
+              XXXXX-XXXX ou (XX) XXXX-XXXX.</small>
+          </div>
         </div>
       </div>
       <app-register-address></app-register-address>
-      <!-- <app-register-footer></app-register-footer> -->
       <app-register-footer (goBackEvent)="onGoBack()" [cadastro]="cadastroForm"></app-register-footer>
     </form>
   </div>
