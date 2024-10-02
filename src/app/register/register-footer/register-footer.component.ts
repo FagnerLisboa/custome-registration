@@ -18,7 +18,7 @@ export class RegisterFooterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('register-footer cadastrarForm: ', this.cadastro);
+    console.log('register-footer cadastrarForm:', this.cadastro);
   }
 
   goBack() {

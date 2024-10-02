@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   public registrationType: string = '';
   public showAddressForm: boolean;
   public cadastroForm: FormGroup;
+  public addressForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -34,12 +35,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onFormSubmit() {
-    if (this.cadastroForm.valid) {
-      this.registerService.cadastrar(this.cadastroForm.value);
+    if (this.cadastroForm.valid && this.addressForm.valid) {
+      this.registerService.cadastrar(this.cadastroForm.value && this.addressForm.value);
       this.showAddressForm = true;
     } else {
       this.cadastroForm.markAllAsTouched();
     }
   }
-
 }

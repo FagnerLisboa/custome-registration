@@ -32,7 +32,7 @@ export class FormPessoaFisicaComponent implements OnInit {
   ngOnInit(): void { }
 
   cadastrar() {
-    this.registerService.cadastrar(this.cadastroForm.value);
+    this.registerService.cadastrar({ dados: this.cadastroForm.value });
   }
 
   onGoBack() {

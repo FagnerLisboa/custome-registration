@@ -1,8 +1,6 @@
 import { SharedService } from './../../shared/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterService } from '../register.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-address',
@@ -10,9 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./register-address.component.scss']
 })
 export class RegisterAddressComponent implements OnInit {
-esqueciCep() {
-throw new Error('Method not implemented.');
-}
 
   addressForm: FormGroup;
 
@@ -61,5 +56,9 @@ throw new Error('Method not implemented.');
       }
     )
   }
+
+  esqueciCep() {
+    throw new Error('Method not implemented.');
+    }
 }
 

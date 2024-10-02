@@ -7,7 +7,7 @@ import { map, Observable } from 'rxjs';
 })
 export class RegisterService {
   
-  private cepData = 'assets/cep.json';
+  private dataCep = 'assets/cep.json';
   private dataPf = 'assets/pf.json';
   private dataPj = 'assets/pj.json';
 
@@ -25,8 +25,8 @@ export class RegisterService {
     return this.http.get<any>(this.dataPj)
   }
 
-  buscarCep(cep: string): Observable<any> {
-    return this.http.get<any>(this.cepData)
+  buscarCep(): Observable<any> {
+    return this.http.get<any>(this.dataCep)
   }
 
 }

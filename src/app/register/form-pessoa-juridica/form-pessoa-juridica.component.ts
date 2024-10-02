@@ -40,7 +40,7 @@ export class FormPessoaJuridicaComponent implements OnInit {
   ngOnInit(): void { }
 
   cadastrar(): void {
-    this.registerService.cadastrar(this.cadastroForm.value);
+    this.registerService.cadastrar({ dados: this.cadastroForm.value });
   }
 
   onGoBack() {
