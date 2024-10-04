@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class RegisterFooterComponent implements OnInit {
 
   @Input() cadastro: FormGroup;
+  @Input() addressForm: FormGroup;
   @Output() goBackEvent = new EventEmitter<void>();
   
 
@@ -19,6 +20,7 @@ export class RegisterFooterComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('register-footer cadastrarForm:', this.cadastro);
+    console.log('Address Form:', this.addressForm);
   }
 
   goBack() {

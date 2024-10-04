@@ -6,7 +6,6 @@
       <a class="btn btn-primary mx-2" (click)="selectRegistration('pf')">Cadastrar Pessoa Física</a>
       <a class="btn btn-primary mx-2" (click)="selectRegistration('pj')">Cadastrar Pessoa Jurídica</a>
     </div>
-
     <app-form-pessoa-juridica *ngIf="registrationType === 'pj'"></app-form-pessoa-juridica>
     <app-form-pessoa-fisica *ngIf="registrationType === 'pf'"></app-form-pessoa-fisica>
   </form>

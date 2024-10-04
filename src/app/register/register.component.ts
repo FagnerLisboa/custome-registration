@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterService } from './register.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { RegisterAddressComponent } from './register-address/register-address.component';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,8 @@ export class RegisterComponent implements OnInit {
   public showAddressForm: boolean;
   public cadastroForm: FormGroup;
   public addressForm: FormGroup;
+
+  @ViewChild('RegisterAddress') registerAddress: RegisterAddressComponent;
 
   constructor(
     private fb: FormBuilder,
@@ -42,4 +45,5 @@ export class RegisterComponent implements OnInit {
       this.cadastroForm.markAllAsTouched();
     }
   }
+
 }

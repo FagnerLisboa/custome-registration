@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
+import { RegisterAddressComponent } from '../register-address/register-address.component';
 
 @Component({
   selector: 'app-form-pessoa-fisica',
@@ -12,6 +13,8 @@ export class FormPessoaFisicaComponent implements OnInit {
   cadastroForm: FormGroup;
   submitted = false;
   public showAddressForm: string = '';
+
+  @ViewChild('registerAddress') registerAddress: RegisterAddressComponent;
  
 
   constructor(
@@ -32,7 +35,7 @@ export class FormPessoaFisicaComponent implements OnInit {
   ngOnInit(): void { }
 
   cadastrar() {
-    this.registerService.cadastrar({ dados: this.cadastroForm.value });
+    this.registerService.cadastrar({ ...this.cadastroForm.value, ...this.registerAddress.dataAddress() });
   }
 
   onGoBack() {

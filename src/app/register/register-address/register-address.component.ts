@@ -33,12 +33,8 @@ export class RegisterAddressComponent implements OnInit {
     return !!field && field.invalid && (field.dirty || field.touched);
   }
 
-  cadastrar() {
-    if (this.addressForm.valid) {
-      console.log('Dados do Formulário de Endereço:', this.addressForm.value);
-    } else {
-      console.log('Formulário inválido');
-    }
+  dataAddress() {
+    return this.addressForm.value;
   }
 
   getAddressBy(cep: string) {
@@ -59,6 +55,5 @@ export class RegisterAddressComponent implements OnInit {
 
   esqueciCep() {
     throw new Error('Method not implemented.');
-    }
+  }
 }
-
