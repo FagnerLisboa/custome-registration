@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\register",
+    "\\src\\app\\register\\form-pessoa-fisica",
+    "\\src\\app\\register\\form-pessoa-juridica",
+    "\\src\\app\\register\\register-address"
   ],
+  "SelectedNode": "\\src\\app\\register\\register-address\\register-address.component.ts",
   "PreviewInSolutionExplorer": false
 }

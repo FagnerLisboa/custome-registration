@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
+import { RegisterAddressComponent } from '../register-address/register-address.component';
 
 function cnpjValidator(control: AbstractControl): ValidationErrors | null {
   const cnpj = control.value.replace(/\D/g, ''); 
@@ -20,6 +21,8 @@ export class FormPessoaJuridicaComponent implements OnInit {
   cadastroForm: FormGroup;
   submitted = false;
   public showAddressForm: string = '';
+
+  @ViewChild('registerAddress') RegisterAddress: RegisterAddressComponent;
 
 
   constructor(
@@ -40,11 +43,10 @@ export class FormPessoaJuridicaComponent implements OnInit {
   ngOnInit(): void { }
 
   cadastrar(): void {
-    this.registerService.cadastrar({ dados: this.cadastroForm.value });
+    this.registerService.cadastrar({ ...this.cadastroForm.value, ...this.RegisterAddress.dataAddress() });
   }
 
   onGoBack() {
     this.router.navigate(['/home']);
   }
-
 }
