@@ -3,8 +3,8 @@
     <div class="row mb-3">
       <div class="col-md-4">
         <label for="cep" class="form-label">CEP:</label>
-        <input type="text" id="cep" class="form-control cep-link" formControlName="cep"
-          [ngClass]="{'is-invalid': isFieldInvalid('cep')}" placeholder="00000-000">
+        <input type="text" id="cep" class="form-control cep-link" mask="00000-000" formControlName="cep"
+          [ngClass]="{'is-invalid': isFieldInvalid('cep')}" (blur)="onBlurCep()" placeholder="00000-000">
         <div *ngIf="isFieldInvalid('cep')" class="text-danger">
           <small *ngIf="addressForm.get('cep')?.errors?.['required']">CEP é obrigatório.</small>
           <small *ngIf="addressForm.get('cep')?.errors?.['pattern']">CEP inválido. Use o formato 00000-000.</small>
