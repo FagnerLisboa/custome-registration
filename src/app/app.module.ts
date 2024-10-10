@@ -29,7 +29,7 @@ const maskConfig: Partial<IConfig> = {
     FormPessoaJuridicaComponent,
     FormPessoaFisicaComponent,
     RegisterComponent,
-    RegisterAddressComponent
+    RegisterAddressComponent,
   ],
   imports: [
     BrowserModule,

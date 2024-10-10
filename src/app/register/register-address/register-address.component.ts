@@ -1,6 +1,7 @@
 import { SharedService } from './../../shared/shared.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-register-address',
@@ -8,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register-address.component.scss']
 })
 export class RegisterAddressComponent implements OnInit {
+
+  @ViewChild('cepModal') cepModal!: ElementRef;
 
   addressForm: FormGroup;
   cepForm: FormGroup;
@@ -30,23 +33,6 @@ export class RegisterAddressComponent implements OnInit {
   }
 
   ngOnInit(): void { }
-
-  buscarCep(): void {
-    const { uf, city, street } = this.cepForm.value;
-    this.sharedService.getCepBy(uf, city, street).subscribe((data) => {
-      if (data.length > 0){
-        this.addressForm.patchValue({
-          cep: data[0].cep,
-          logradouro: data[0].logradouro,
-          bairro: data[0].bairro,
-          cidade: data[0].localidade,
-          estado: data[0].uf,
-        });
-      }else {
-        console.error('CEP não encontrado');
-      }
-    });
-  }
 
   isFieldInvalid(fieldName: string): boolean {
     const field = this.addressForm.get(fieldName);
@@ -82,7 +68,33 @@ export class RegisterAddressComponent implements OnInit {
     }
   }
 
-  esqueciCep() {
-    throw new Error('Method not implemented.');
+  openModal(event: Event) {
+    event.preventDefault();
+    const modalElement = new bootstrap.Modal(this.cepModal.nativeElement);
+    modalElement.show();
+  }
+
+  closeModal() {
+    const modal = bootstrap.Modal.getInstance(this.cepModal.nativeElement);
+    if (modal) {
+      modal.hide();
+    }
+  }
+
+  buscarCep(): void {
+    const { uf, city, street } = this.cepForm.value;
+    this.sharedService.getCepBy(uf, city, street).subscribe((data) => {
+      if (data.length > 0) {
+        this.addressForm.patchValue({
+          cep: data[0].cep,
+          logradouro: data[0].logradouro,
+          bairro: data[0].bairro,
+          cidade: data[0].localidade,
+          estado: data[0].uf,
+        });
+      } else {
+        console.error('CEP não encontrado');
+      }
+    });
   }
 }

@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="col-md-3 d-flex align-items-end">
-        <a href="#" (click)="esqueciCep()" class="text-primary">Esqueci meu CEP</a>
+        <a href="#" (click)="openModal($event)" class="text-primary">Esqueci meu CEP</a>
       </div>
     </div>
     <div class="row mb-3">
@@ -72,4 +72,37 @@
       </div>
     </div>
   </form>
+</div>
+
+<!-- Modal -->
+<div #cepModal class="modal fade" tabindex="-1" aria-labelledby="cepModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cepModalLabel">Buscar CEP</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="cepForm">
+          <div class="mb-3">
+            <label for="uf" class="form-label">Estado (UF):</label>
+            <input type="text" id="uf" class="form-control" formControlName="uf" placeholder="Ex: SP">
+          </div>
+          <div class="mb-3">
+            <label for="city" class="form-label">Cidade:</label>
+            <input type="text" id="city" class="form-control" formControlName="city" placeholder="Ex: São Paulo">
+          </div>
+          <div class="mb-3">
+            <label for="street" class="form-label">Logradouro:</label>
+            <input type="text" id="street" class="form-control" formControlName="street"
+              placeholder="Ex: Rua Abílio Soares">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Fechar</button>
+        <button type="button" class="btn btn-primary" (click)="buscarCep()">Buscar CEP</button>
+      </div>
+    </div>
+  </div>
 </div>
