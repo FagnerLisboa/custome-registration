@@ -50,17 +50,7 @@
             caracteres.</small>
         </div>
       </div>
-      <div class="col-md-4">
-        <label for="estado" class="form-label">Estado:</label>
-        <input type="text" id="estado" class="form-control input-gray" formControlName="estado"
-          [ngClass]="{ 'is-invalid': isFieldInvalid('estado') }" />
-        <div *ngIf="isFieldInvalid('estado')" class="text-danger">
-          <small *ngIf="addressForm.get('estado')?.errors?.['required']">Estado é obrigatório.</small>
-          <small *ngIf="addressForm.get('estado')?.errors?.['pattern']">Estado inválido. Use o formato UF (ex:
-            SP).</small>
-        </div>
-      </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label for="cidade" class="form-label">Cidade:</label>
         <input type="text" id="cidade" class="form-control input-gray" formControlName="cidade"
           [ngClass]="{ 'is-invalid': isFieldInvalid('cidade') }" />
@@ -70,6 +60,27 @@
             caracteres.</small>
         </div>
       </div>
+      <div class="col-md-3">
+        <label for="estado" class="form-label">Estado:</label>
+        <select id="estado" class="form-control" formControlName="estado"
+          [ngClass]="{ 'is-invalid': isFieldInvalid('estado') }">
+          <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.nome }}</option>
+        </select>
+        <div *ngIf="isFieldInvalid('estado')" class="text-danger">
+          <small *ngIf="addressForm.get('estado')?.errors?.['required']">Estado é obrigatório.</small>
+        </div>
+      </div> 
+      <div class="col-md-2">
+        <label for="estado" class="form-label">UF:</label>
+        <select id="estado" class="form-control" formControlName="estado"
+          [ngClass]="{ 'is-invalid': isFieldInvalid('estado') }">
+          <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.sigla }}</option>
+        </select>
+        <div *ngIf="isFieldInvalid('estado')" class="text-danger">
+          <small *ngIf="addressForm.get('estado')?.errors?.['required']">Estado é obrigatório.</small>
+        </div>
+      </div> 
+
     </div>
   </form>
 </div>
@@ -96,6 +107,9 @@
             <label for="street" class="form-label">Logradouro:</label>
             <input type="text" id="street" class="form-control" formControlName="street"
               placeholder="Ex: Rua Abílio Soares">
+          </div>
+          <div *ngIf="cepNaoEncontrado" class="text-danger">
+            CEP não encontrado
           </div>
         </form>
       </div>

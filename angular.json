@@ -23,6 +23,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "bootstrap"
+            ],
             "outputPath": "dist/customer-registration",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -38,7 +41,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-	            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
