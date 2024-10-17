@@ -80,7 +80,6 @@
           <small *ngIf="addressForm.get('estado')?.errors?.['required']">Estado é obrigatório.</small>
         </div>
       </div> 
-
     </div>
   </form>
 </div>
@@ -95,18 +94,22 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="cepForm">
-          <div class="mb-3">
-            <label for="uf" class="form-label">Estado (UF):</label>
-            <input type="text" id="uf" class="form-control" formControlName="uf" placeholder="Ex: SP">
-          </div>
-          <div class="mb-3">
-            <label for="city" class="form-label">Cidade:</label>
-            <input type="text" id="city" class="form-control" formControlName="city" placeholder="Ex: São Paulo">
+          <div class="row mb-3">
+            <div class="col-md-9">
+              <label for="city" class="form-label">Cidade:</label>
+              <input type="text" id="city" class="form-control" formControlName="city">
+            </div>
+            <div class="col-md-3">
+              <label for="uf" class="form-label">Estado:</label>
+              <select id="uf" class="form-select" formControlName="uf">
+                <option value="" disabled selected></option>
+                <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.sigla }}</option>
+              </select>
+            </div>
           </div>
           <div class="mb-3">
             <label for="street" class="form-label">Logradouro:</label>
-            <input type="text" id="street" class="form-control" formControlName="street"
-              placeholder="Ex: Rua Abílio Soares">
+            <input type="text" id="street" class="form-control" formControlName="street">
           </div>
           <div *ngIf="cepNaoEncontrado" class="text-danger">
             CEP não encontrado
