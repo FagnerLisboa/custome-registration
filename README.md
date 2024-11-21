@@ -2,6 +2,8 @@
 
 # Sistema de Cadastro de Clientes
 
+![Tela do Sistema](src/assets/formulario.png)
+
 Este projeto é um sistema de cadastro para pessoas físicas e jurídicas, desenvolvido utilizando Angular 13 com foco em boas práticas de desenvolvimento, responsividade e integração com banco de dados PostgreSQL.
 
 ## 📋 Descrição
@@ -41,4 +43,8 @@ Nome: Fagner Lisboa
 - **GitHub:** [FagnerLisboa](https://github.com/FagnerLisboa/)
 
 
-![Projeto](assets/formulario.png)
+
+
+
+
+
