@@ -1,32 +1,41 @@
 # CustomerRegistration
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+# Sistema de Cadastro de Clientes
 
-## Development server
+Este projeto é um sistema de cadastro para pessoas físicas e jurídicas, desenvolvido utilizando Angular 13 com foco em boas práticas de desenvolvimento, responsividade e integração com banco de dados PostgreSQL.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📋 Descrição
 
-## Code scaffolding
+O sistema permite o cadastro de clientes, sejam pessoas físicas ou jurídicas, com uma interface amigável e responsiva, utilizando **Bootstrap**. Todas as informações são validadas com rigor, usando **regex** e máscaras, garantindo a integridade dos dados. A aplicação segue os princípios de **orientação a objetos** e **clean code**, proporcionando um código modular e fácil de manter.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Tecnologias Utilizadas
 
-## Build
+- **Angular 13**: Framework principal para desenvolvimento do frontend.
+- **Bootstrap**: Para design responsivo e estilização.
+- **API REST**: Para comunicação entre o frontend e o backend.
+- **PostgreSQL**: Banco de dados utilizado para armazenamento dos dados dos clientes.
+- **Regex & Masks**: Validações e máscaras aplicadas nos formulários.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📦 Funcionalidades
 
-## Running unit tests
+- Cadastro de pessoas físicas e jurídicas.
+- Validações de campos com **regex** e máscaras.
+- Interface responsiva, adaptável a diferentes dispositivos.
+- Integração com API REST para operações CRUD.
+- Armazenamento de dados no banco de dados PostgreSQL.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🎨 Layout Responsivo
 
-## Running end-to-end tests
+O projeto foi desenvolvido com foco em design responsivo, utilizando **Bootstrap** para garantir que a interface seja amigável em qualquer dispositivo, seja desktop, tablet ou smartphone.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠️ Pré-requisitos
 
-## Further help
+📝 Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+📫 Contato
+Para dúvidas ou sugestões, entre em contato:
 
-## API CEP Endereço
-
-For more information, visit: [Api de CEPs e Endereços](https://viacep.com.br/)
-
+Nome: Fagner Lisboa
+- **LinkedIn:** [Fagner Lisboa](https://www.linkedin.com/in/fagner-lisboa-dev/)
+- **GitHub:** [Fagner no GitHub](https://github.com/FagnerLisboa/)
